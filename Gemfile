@@ -45,3 +45,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'webpacker'
+gem 'react-rails'
+gem 'responders', '~> 2.0'
