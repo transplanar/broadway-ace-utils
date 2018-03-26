@@ -48,3 +48,4 @@ end
 gem 'webpacker'
 gem 'react-rails'
 gem 'responders', '~> 2.0'
+gem "interactor", "~> 3.0"
