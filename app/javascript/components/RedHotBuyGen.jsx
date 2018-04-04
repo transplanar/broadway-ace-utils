@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import axios from "axios"
-import HourlyCalculator from './HourlyCalculator.jsx'
 
 class RedHotBuyGen extends React.Component {
   constructor(props){
@@ -76,8 +75,6 @@ class RedHotBuyGen extends React.Component {
       <React.Fragment>
         <textarea onChange={this.handleChange}></textarea>
         <div>{this.resultText()}</div>
-        <HourlyCalculator />
-        
       </React.Fragment>
     );
   }
