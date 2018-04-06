@@ -37,7 +37,7 @@ class HourlyCalculator extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <div>Hour Calculator</div>
+        <h1>Work Hour Calculator</h1>
         <input onChange={this.handleChange}></input>
         <div>{this.state.resultHourly}</div>
       </React.Fragment>

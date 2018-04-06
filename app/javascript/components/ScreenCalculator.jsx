@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+var phantom = require('phantomjs-prebuilt')
 
 class ScreenCalculator extends React.Component {
   constructor(props){
@@ -70,6 +71,21 @@ class ScreenCalculator extends React.Component {
   getRescreenCost(){
       return <div>Rescreen Cost: ${parseFloat(this.state.sqft * 2.25).toFixed(2)}</div>
   }
+  
+  // phantomJStest(){
+  //   var page = require("webpage").create();
+  //   page.open("http://yourwebsite", function(status) {
+  //   	console.log("Status: " + status);
+  //   	if(status === "success") {
+  //   		page.evaluate(function(){
+  //   			document.getElementById("firstName").value = "John";
+  //   			document.getElementById("lastName").value = "Doe";
+    
+  //   		});
+  //   	}
+  //   phantom.exit();
+  //   });
+  // }
   
   render () {
     return (

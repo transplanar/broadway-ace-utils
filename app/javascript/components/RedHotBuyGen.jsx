@@ -2,43 +2,32 @@ import React from "react"
 import PropTypes from "prop-types"
 import axios from "axios"
 
+const defaultResultText = "Awaiting Input";
+
 class RedHotBuyGen extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       query: '',
-      resultText: 'default',
+      resultText: defaultResultText,
       resultHourly: 0.0
     };
     
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.resolvePromise = this.resolvePromise.bind(this);
   }
   
   handleChange(event) {
-      this.setState({query: event.target.value});
-      this.handleSubmit(event);
-  }
-  
-  resolvePromise(response){
-      this.setState({
-          resultText: response.data
-      });
-  }
-  
-  handleSubmit(event) {
       event.preventDefault();
+      
+      this.setState({query: event.target.value})
   
-      var queryUrl = 'api/v1/search/?query='+this.state.query
+      var queryUrl = 'api/v1/search/?query='+ event.target.value
       axios.get(queryUrl)
           .then((response)=>{
-              this.resolvePromise(response); 
+              this.setState({
+                resultText: response.data
+              });
           });
-  }
-  
-  resultText(){
-    return this.state.resultText;
   }
   
   resultHourly(){
@@ -68,11 +57,14 @@ class RedHotBuyGen extends React.Component {
     });
   }
   
+  resultText(){
+    return (this.state.query == "" ? defaultResultText : this.state.resultText);
+  }
+  
   render () {
-    // FIXME: Missing last entered character
-    // Fix with this: https://stackoverflow.com/questions/33088482/onchange-in-react-doesnt-capture-the-last-character-of-text
     return (
       <React.Fragment>
+        <h1>Red Hot Buy Generator</h1>
         <textarea onChange={this.handleChange}></textarea>
         <div>{this.resultText()}</div>
       </React.Fragment>
