@@ -1,64 +1,106 @@
 import React from "react"
 import PropTypes from "prop-types"
 import axios from "axios"
+import _ from 'lodash'
 
 const defaultResultText = "Awaiting Input";
+const selectBoxOptions = "Red Hot Buy, Crafted Workshop".split(', ');
 
 class RedHotBuyGen extends React.Component {
+  
+  
   constructor(props){
     super(props);
     this.state = {
-      query: '',
+      message: '',
       resultText: defaultResultText,
-      resultHourly: 0.0
+      selectOptionsContent: [],
+      selectChoice: selectBoxOptions[0]
     };
     
     this.handleChange = this.handleChange.bind(this);
+    this.handleSelectChoice= this.handleSelectChoice.bind(this);
   }
   
-  handleChange(event) {
-      event.preventDefault();
-      
-      this.setState({query: event.target.value})
-  
-      var queryUrl = 'api/v1/search/?query='+ event.target.value
-      axios.get(queryUrl)
-          .then((response)=>{
-              this.setState({
-                resultText: response.data
-              });
-          });
-  }
-  
-  resultHourly(){
-    return this.state.resultHourly;
-  }
-  
-  parseHours(event){
-    var hoursArr = event.target.value.split(' ').map((e)=> parseFloat(e));
-
-    const reducer = (acc, cur) => {
-      var add =  (acc <= 6 ? acc : (acc - 0.5));
-      return add + cur;
-    };
+  componentDidMount(){
+    let options = this.generateSelectOptions();
     
-    var totalHours = 0;
-    
-    if(hoursArr.length < 2){
-      if(hoursArr > 6){
-        totalHours = hoursArr - 0.5;
-      }
-    }else{
-      totalHours = hoursArr.reduce(reducer);
-    }
-
     this.setState({
-      resultHourly: totalHours
+      selectOptionsContent: options
     });
   }
   
-  resultText(){
+  generateSelectOptions(){
+    let options = [];
+    let i = 0;
+    
+    _.times(selectBoxOptions.length, ()=>{
+      options.push(<option key={i} value={selectBoxOptions[i]}>{selectBoxOptions[i]}</option>); 
+      i++;
+    });
+
+    return options;
+  }
+
+  handleChange(event) {
+      let message = event.target.value;
+    
+      this.setState({
+        message: message
+      });
+      
+      this.updateMessage(message);
+  }
+  
+  handleSelectChoice(event){
+    let choice = event.target.value;
+    
+    this.setState({
+      selectChoice: choice
+    });
+    
+    this.updateChoice(choice);
+  }
+  
+  getOptions(){
+    return this.state.selectOptionsContent;
+  }
+  
+  getResultText(){
     return (this.state.query == "" ? defaultResultText : this.state.resultText);
+  }
+  
+  updateMessage(message){
+    this.setResultMessage(message, this.state.selectChoice);
+  }
+  
+  updateChoice(choice){
+    this.setResultMessage(this.state.message, choice);
+  }
+  
+  
+  // TODO: Append correct social media mention tags
+  // TODO: Implement webscaping to update messages by channel
+  setResultMessage(message, choice){
+    let prefix = '';
+    let suffix = '';
+    
+    switch(choice){
+      case "Red Hot Buy":
+        prefix = 'Red Hot Spotlight:';
+        suffix = 'Learn more somewhere else!'
+        break;
+      case "Crafted Workshop":
+        prefix = 'Get crafty!';
+        suffix = 'With crafty craft crafts'
+        break;
+      default:
+        break;
+    }
+    
+    this.setState({
+      resultText: prefix + message + suffix
+    });
   }
   
   render () {
@@ -66,7 +108,10 @@ class RedHotBuyGen extends React.Component {
       <React.Fragment>
         <h1>Red Hot Buy Generator</h1>
         <textarea onChange={this.handleChange}></textarea>
-        <div>{this.resultText()}</div>
+        <div>{this.getResultText()}</div>
+        <select onChange={this.handleSelectChoice} value={this.state.selectChoice}>
+          {this.getOptions()}
+        </select>
       </React.Fragment>
     );
   }

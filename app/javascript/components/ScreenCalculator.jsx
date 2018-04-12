@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-var phantom = require('phantomjs-prebuilt')
+// var phantom = require('phantomjs-prebuilt')
 
 class ScreenCalculator extends React.Component {
   constructor(props){
