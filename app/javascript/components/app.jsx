@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import RedHotBuyGen from "./RedHotBuyGen.jsx"
+import SocialMediaMessageBuilder from "./SocialMediaMessageBuilder.jsx"
 import HourlyCalculator from "./HourlyCalculator.jsx"
 import ScreenCalculator from "./ScreenCalculator.jsx"
 
@@ -16,7 +16,7 @@ class App extends React.Component {
   render () {
     return (
       <div id="app">
-        <RedHotBuyGen />
+        <SocialMediaMessageBuilder />
         <HourlyCalculator />
         <ScreenCalculator />
       </div>

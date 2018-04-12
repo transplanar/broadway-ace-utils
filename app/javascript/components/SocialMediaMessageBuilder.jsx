@@ -6,9 +6,7 @@ import _ from 'lodash'
 const defaultResultText = "Awaiting Input";
 const selectBoxOptions = "Red Hot Buy, Crafted Workshop".split(', ');
 
-class RedHotBuyGen extends React.Component {
-  
-  
+class SocialMediaMessageBuilder extends React.Component {
   constructor(props){
     super(props);
     this.state = {
@@ -62,10 +60,6 @@ class RedHotBuyGen extends React.Component {
     this.updateChoice(choice);
   }
   
-  getOptions(){
-    return this.state.selectOptionsContent;
-  }
-  
   getResultText(){
     return (this.state.query == "" ? defaultResultText : this.state.resultText);
   }
@@ -99,7 +93,7 @@ class RedHotBuyGen extends React.Component {
     }
     
     this.setState({
-      resultText: prefix + message + suffix
+      resultText: `${prefix} ${message} ${suffix}`
     });
   }
   
@@ -110,11 +104,11 @@ class RedHotBuyGen extends React.Component {
         <textarea onChange={this.handleChange}></textarea>
         <div>{this.getResultText()}</div>
         <select onChange={this.handleSelectChoice} value={this.state.selectChoice}>
-          {this.getOptions()}
+          {this.state.selectOptionsContent}
         </select>
       </React.Fragment>
     );
   }
 }
 
-export default RedHotBuyGen;
+export default SocialMediaMessageBuilder;
