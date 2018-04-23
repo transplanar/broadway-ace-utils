@@ -121,7 +121,7 @@ class SocialMediaMessageBuilder extends React.Component {
     
     switch(choice){
       case "Red Hot Buy":
-        prefix = 'Red Hot Spotlight:';
+        // prefix = 'Red Hot Spotlight:';
         suffix = `More Deals: ${BROADWAY_ACE_DEALS_URL}`;
         template = `${prefix} ${message} ${suffix} ${link}` 
         break;
