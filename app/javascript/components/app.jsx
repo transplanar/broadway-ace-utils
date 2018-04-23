@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import SocialMediaMessageBuilder from "./SocialMediaMessageBuilder.jsx"
 import HourlyCalculator from "./HourlyCalculator.jsx"
-import ScreenCalculator from "./ScreenCalculator.jsx"
+import SquareFootCalculator from "./SquareFootCalculator.jsx"
 
 class App extends React.Component {
   constructor(props){
@@ -18,7 +18,7 @@ class App extends React.Component {
       <div id="app">
         <SocialMediaMessageBuilder />
         <HourlyCalculator />
-        <ScreenCalculator />
+        <SquareFootCalculator />
       </div>
     );
   }
