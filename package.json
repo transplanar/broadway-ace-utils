@@ -1,0 +1,36 @@
+{
+  "dependencies": {
+    "@rails/webpacker": "^3.3.1",
+    "axios": "^0.18.0",
+    "babel-preset-react": "^6.24.1",
+    "clipboard": "^2.0.0",
+    "lodash": "^4.17.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react_ujs": "^2.4.4"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  },
+  "name": "ace-utils",
+  "description": "Usage: 1. Type each line you want converted into a Red Hot Spotlight into individual lines in `readFrom.txt`",
+  "version": "0.0.1",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/transplanar/broadway-ace-utils.git"
+  },
+  "author": "Glen Cooney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/transplanar/broadway-ace-utils/issues"
+  },
+  "homepage": "https://github.com/transplanar/broadway-ace-utils#readme"
+}

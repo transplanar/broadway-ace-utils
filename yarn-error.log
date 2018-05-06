@@ -1,0 +1,66 @@
+Arguments: 
+  /home/ubuntu/.nvm/versions/node/v6.11.2/bin/node /usr/share/yarn/bin/yarn.js install bootstrap
+
+PATH: 
+  /home/ubuntu/.nvm/versions/node/v6.11.2/bin:/usr/local/rvm/gems/ruby-2.3.4/bin:/usr/local/rvm/gems/ruby-2.3.4@global/bin:/usr/local/rvm/rubies/ruby-2.3.4/bin:/mnt/shared/bin:/home/ubuntu/workspace/node_modules/.bin:/home/ubuntu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/shared/sbin:/opt/gitl:/opt/go/bin:/mnt/shared/c9/app.nw/bin:/usr/local/rvm/bin
+
+Yarn version: 
+  1.5.1
+
+Node version: 
+  6.11.2
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "dependencies": {
+      "@rails/webpacker": "^3.3.1",
+      "axios": "^0.18.0",
+      "babel-preset-react": "^6.24.1",
+      "lodash": "^4.17.5",
+      "prop-types": "^15.6.1",
+      "react": "^16.2.0",
+      "react-dom": "^16.2.0",
+      "react_ujs": "^2.4.4"
+    },
+    "devDependencies": {
+      "webpack-dev-server": "2.11.2"
+    },
+    "name": "ace-utils",
+    "description": "Usage: 1. Type each line you want converted into a Red Hot Spotlight into individual lines in `readFrom.txt`",
+    "version": "0.0.1",
+    "main": "index.js",
+    "directories": {
+      "test": "test"
+    },
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/transplanar/broadway-ace-utils.git"
+    },
+    "author": "Glen Cooney",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/transplanar/broadway-ace-utils/issues"
+    },
+    "homepage": "https://github.com/transplanar/broadway-ace-utils#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: `install` has been replaced with `add` to add new dependencies. Run "yarn add bootstrap" instead.
+      at MessageError.Error (native)
+      at new MessageError (/usr/share/yarn/lib/cli.js:186:110)
+      at Object.<anonymous> (/usr/share/yarn/lib/cli.js:21987:13)
+      at next (native)
+      at step (/usr/share/yarn/lib/cli.js:98:30)
+      at /usr/share/yarn/lib/cli.js:109:13
