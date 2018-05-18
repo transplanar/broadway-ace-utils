@@ -1,5 +1,3 @@
 # Ace Utilities
 
-A collection of utility services for Broadway Ace Hardware.
-
-## WORK IN PROGRESS
+Depreciated. See [Ace Utilities Portal](https://github.com/transplanar/Ace-Utilities-Portal).
